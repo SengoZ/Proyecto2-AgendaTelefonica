@@ -36,4 +36,10 @@ public interface AgendaDao {
 	 * nos devolverá un elemento nulo.
 	 */
 	public Persona buscarId(int id);
+	
+	/**
+	 * Método para eliminar un contacto de la agenda a partir de un id como parámetro
+	 * @param id Introducimos el identificador del usuario para buscar el contacto a eliminar
+	 */
+	public void delete(int id);
 }
