@@ -56,4 +56,10 @@ public class AgendaDaoImpl implements AgendaDao{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Persona fichaContacto(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
