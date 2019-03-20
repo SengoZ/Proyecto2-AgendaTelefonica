@@ -5,6 +5,8 @@ package com.spring.proyecto2.dao;
 
 import java.util.List;
 
+import com.spring.model.Persona;
+
 /**
  * @author Andrés Gómez
  * @version 1.0
@@ -19,5 +21,8 @@ public interface AgendaDao {
 	 * @return listado de personas incluidas en la agenda
 	 */
 	public List<Persona> list();
+	
+	
+	
 
 }
