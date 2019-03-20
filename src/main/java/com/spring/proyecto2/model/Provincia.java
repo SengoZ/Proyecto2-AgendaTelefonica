@@ -1,4 +1,4 @@
-package com.spring.model;
+package com.spring.proyecto2.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;

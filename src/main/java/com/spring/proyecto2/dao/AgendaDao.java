@@ -5,7 +5,7 @@ package com.spring.proyecto2.dao;
 
 import java.util.List;
 
-import com.spring.model.Persona;
+import com.spring.proyecto2.model.Persona;
 
 /**
  * @author Sheila Garcia, Cesar Marcos, Amador Caceres, Andres Gomez
