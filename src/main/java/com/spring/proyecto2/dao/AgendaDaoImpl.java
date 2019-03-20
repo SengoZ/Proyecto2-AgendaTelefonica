@@ -44,4 +44,10 @@ public class AgendaDaoImpl implements AgendaDao{
 		entityManager.merge(persona);
 		
 	}
+
+	@Override
+	public Persona buscarId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
