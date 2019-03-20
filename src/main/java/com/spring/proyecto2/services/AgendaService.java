@@ -28,4 +28,18 @@ public interface AgendaService {
 	 */
 	public void add(Persona persona);
 	
+	/**
+	 * Metodo que relaciona la capa de control con el repositorio en la cual nos devolverá el contacto de la agenda a partir de un id como parámetro
+	 * @param id Introducimos el identificador del usuario para poder obtener al contacto 
+	 * buscado
+	 * @return persona Nos devolverá una persona en caso de encontrarla, si no lo puede hacer 
+	 * nos devolverá un elemento nulo.
+	 */
+	public Persona buscarId(int id);
+	
+	/**
+	 * Metodo que relaciona la capa de control con el repositorio en la cual podemos eliminar un contacto de la agenda a partir de un id como parámetro
+	 * @param id Introducimos el identificador del usuario para buscar el contacto a eliminar
+	 */
+	public void delete(int id);
 }
