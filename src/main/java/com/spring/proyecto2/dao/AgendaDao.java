@@ -22,7 +22,11 @@ public interface AgendaDao {
 	 */
 	public List<Persona> list();
 	
-	
+	/**
+	 * Método que nos permite introducir a un nuevo contacto
+	 * @param persona Introducimos al método el contacto que queremos agregar.
+	 */
+	public void add(Persona persona);
 	
 
 }
