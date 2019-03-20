@@ -42,4 +42,11 @@ public interface AgendaDao {
 	 * @param id Introducimos el identificador del usuario para buscar el contacto a eliminar
 	 */
 	public void delete(int id);
+	
+	/**
+	 * Método para devolver la ficha de una persona concreta a partir de su identificador
+	 * @param id Pasamos por parametro el identificador concreto.
+	 * @return devolvemos la ficha del contacto deseado.
+	 */
+	public Persona fichaContacto(int id);
 }
