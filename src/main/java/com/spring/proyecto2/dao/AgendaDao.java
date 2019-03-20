@@ -8,7 +8,7 @@ import java.util.List;
 import com.spring.model.Persona;
 
 /**
- * @author Andrés Gómez
+ * @author Sheila Garcia, Cesar Marcos, Amador Caceres, Andres Gomez
  * @version 1.0
  * 
  * Interfaz de DAO de la aplicación de Agenda telefónica
