@@ -18,6 +18,6 @@ import com.spring.proyecto2.model.Persona;
  */
 
 @Repository
-public interface AgendaDao extends JpaRepository<Persona, Long> {
+public interface AgendaDao extends JpaRepository<Persona, Integer> {
 
 }

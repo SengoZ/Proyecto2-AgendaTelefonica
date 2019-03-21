@@ -56,7 +56,7 @@ public class AgendaServiceImpl implements AgendaService{
 	 */
 	@Override
 	public Persona buscarId(int id) {
-		return repository.findById((long) id).orElse(null);
+		return repository.findById( id).orElse(null);
 	}
 
 	/**
