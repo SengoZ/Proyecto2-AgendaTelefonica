@@ -1,5 +1,6 @@
 package com.spring.proyecto2.model;
 
+import java.util.Date;
 import java.util.List;
 
 import java.io.Serializable;
@@ -19,57 +20,68 @@ import javax.persistence.Table;
  *
  */
 
-//Se le da una identidad a la clase y se define el nombre de la tabla en la que se encuentran los objetos de este tipo.
+/**
+ * Se le da una identidad a la clase y se define el nombre de la tabla en la que
+ * se encuentran los objetos de este tipo.
+ */
 
 @Entity
 @Table(name = "persona")
 
 public class Persona implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	// Se utiliza OneToMany para relacionar una persona (mapeado por el ID de la
-	// persona) con varios números de teléfono.
+	/**
+	 * Se utiliza OneToMany para relacionar una persona (mapeado por el ID de la
+	 * persona) con varios números de teléfono.
+	 */
 
-	@OneToMany(mappedBy = "personaId")
+	@OneToMany(mappedBy = "personaId") // no existe en la tabla de personas ni telefono ni direccion, no sé si funcionará así. revisar.
 	private List<Telefono> listaTelefonos;
 
-	// Se utiliza OneToOne para relacionar una persona (mapeado por el ID de la
-	// persona) con una dirección.
+	/**
+	 * Se utiliza OneToOne para relacionar una persona (mapeado por el ID de la
+	 * persona) con una dirección.
+	 */
 
 	@OneToOne(mappedBy = "personaId") // He utilizado persona id para telefonos y direcciones puede ser que de
 										// problema al ejecutarlo, para eso cambiar el nombre
 	private Direccion direccion;
 
-	// Se le da una identidad a la ID de la persona que será autoincremental.
-	// También se hace referencia a las columnas de la tabla que guardará cada
-	// atributo del objeto.
+	/**
+	 * Se le da una identidad a la ID de la persona que será autoincremental.
+	 * También se hace referencia a las columnas de la tabla que guardará cada
+	 * atributo del objeto.
+	 */
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private Integer id;
+	@Column(name = "idpersona")
+	private Integer idpersona;
 
 	@Column(name = "nombre")
 	private String nombre;
 
-	@Column(name = "apellido")
-	private String apellido;
+	@Column(name = "apellido1")
+	private String apellido1;
 
-	@Column(name = "correo")
-	private String correo;
+	@Column(name = "apellido2")
+	private String apellido2;
+
+	@Column(name = "dni")
+	private String dni;
+
+	@Column(name = "fechanacimiento")
+	private Date fechanacimiento;
 
 	public List<Telefono> getListaTelefonos() {
 		return listaTelefonos;
 	}
-	// Se realizan Getter/Setter de todos los parámetros.
 
-	public void setListaTelefonos(List<Telefono> listaTelefonos) {
-		this.listaTelefonos = listaTelefonos;
-	}
+	/**
+	 * Se realizan Getter/Setter de todos los parámetros.
+	 */
 
 	public Direccion getDireccion() {
 		return direccion;
@@ -79,12 +91,12 @@ public class Persona implements Serializable {
 		this.direccion = direccion;
 	}
 
-	public Integer getId() {
-		return id;
+	public Integer getIdpersona() {
+		return idpersona;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdpersona(Integer idpersona) {
+		this.idpersona = idpersona;
 	}
 
 	public String getNombre() {
@@ -95,46 +107,70 @@ public class Persona implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getApellido1() {
+		return apellido1;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setApellido1(String apellido1) {
+		this.apellido1 = apellido1;
 	}
 
-	public String getCorreo() {
-		return correo;
+	public String getApellido2() {
+		return apellido2;
 	}
 
-	public void setCorreo(String correo) {
-		this.correo = correo;
+	public void setApellido2(String apellido2) {
+		this.apellido2 = apellido2;
 	}
 
-	// Se realizan tanto el constructor vacío como el constructor con los atributos
-	// que definen al objeto.
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public Date getFechanacimiento() {
+		return fechanacimiento;
+	}
+
+	public void setFechanacimiento(Date fechanacimiento) {
+		this.fechanacimiento = fechanacimiento;
+	}
+
+	public void setListaTelefonos(List<Telefono> listaTelefonos) {
+		this.listaTelefonos = listaTelefonos;
+	}
+
+	/**
+	 * Se realizan tanto el constructor vacío como el constructor con los atributos
+	 * que definen al objeto.
+	 */
 
 	public Persona() {
 		super();
 	}
 
-	public Persona(List<Telefono> listaTelefonos, Direccion direccion, Integer id, String nombre, String apellido,
-			String correo) {
+	public Persona(Integer idpersona, String nombre,
+			String apellido1, String apellido2, String dni, Date fechanacimiento) {
 		super();
-		this.listaTelefonos = listaTelefonos;
-		this.direccion = direccion;
-		this.id = id;
+		this.idpersona = idpersona;
 		this.nombre = nombre;
-		this.apellido = apellido;
-		this.correo = correo;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.dni = dni;
+		this.fechanacimiento = fechanacimiento;
 	}
 
-	// Se realiza el ToString
-
+	/**
+	 * Se realiza el ToString
+	 */
 	@Override
 	public String toString() {
-		return "Persona [listaTelefonos=" + listaTelefonos + ", direccion=" + direccion + ", id=" + id + ", nombre="
-				+ nombre + ", apellido=" + apellido + ", correo=" + correo + "]";
+		return "Persona [idpersona=" + idpersona
+				+ ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni=" + dni
+				+ ", fechanacimiento=" + fechanacimiento + "]";
 	}
 
 }
