@@ -29,10 +29,17 @@ public class AgendaController {
 	 * @return model Devuelve el modelo de JSP listadoCont
 	 */
 	@RequestMapping("/")
-	public ModelAndView listContactos() {	
+	public ModelAndView listContactos() {
+		System.out.println("Entra a /");
 		List<Persona> listPers = agendaService.list();
+		System.out.println("El metodo de listar no da error");
 		ModelAndView model = new ModelAndView("listadoCont");
+		for(Persona i:listPers) {
+			System.out.println(i.getNombre());
+		}
+		System.out.println("Model and View se crea");
 		model.addObject("listaContactos", listPers);
+		System.out.println("Al final pasa algo compadre");
 		return model;
 	}
 	
