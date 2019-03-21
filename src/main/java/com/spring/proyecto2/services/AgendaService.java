@@ -43,10 +43,4 @@ public interface AgendaService {
 	 */
 	public void delete(int id);
 	
-	/**
-	 * Metodo que relaciona la capa de control con el repositorio en la cual nos devolverá la ficha de una persona concreta a partir de su identificador
-	 * @param id Pasamos por parametro el identificador concreto.
-	 * @return devolvemos la ficha del contacto deseado.
-	 */
-	public Persona fichaContacto(int id);
 }
