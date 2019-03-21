@@ -25,23 +25,46 @@ public class AgendaServiceImpl implements AgendaService{
 
 	/**
 	 * {@inheritDoc}
-	 * add whatever you would like here
+	 * 
+	 * Implementación del método en el cual nos devolverá un listado de personas.
+	 * @return List<Persona> listado de personas incluidas en la agenda
 	 */
 	@Override
 	public List<Persona> list() {
 		return repository.findAll();
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Método en el cual podemos introducir un contacto.
+	 * @param persona Introducimos al método el contacto que queremos agregar.
+	*/
 	@Override
 	public void add(Persona persona) {
 		repository.save(persona);
 	}
 	
+	/**
+	 * * {@inheritDoc}
+	 * 
+	 * Metodo en el cual nos devolverá el contacto de la agenda a partir de un id como parámetro
+	 * @param id Introducimos el identificador del usuario para poder obtener al contacto 
+	 * buscado
+	 * @return Persona Nos devolverá una persona en caso de encontrarla, si no lo puede hacer 
+	 * nos devolverá un elemento nulo.
+	 */
 	@Override
 	public Persona buscarId(int id) {
 		return repository.findById((long) id).orElse(null);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Método en el cual podemos eliminar un contacto de la agenda a partir de un id como parámetro.
+	 * @param id Introducimos el identificador del usuario para buscar el contacto a eliminar
+	 */
 	@Override
 	public void delete(int id) {
 		Persona user = buscarId(id);
