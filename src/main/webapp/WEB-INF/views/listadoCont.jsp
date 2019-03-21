@@ -107,16 +107,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="persona" items="${listaContactos}" varStatus="status">
-                            <tr>
-                                <td>${persona.nombre}</td>
-                                <td><em>${persona.listaTelefonos.numero}</em></td>
-                                <td><a href="edit?id=${persona.id}"><i class="fas fa-user">Ficha</i></a> |
-                                    <a href="delete?id=${persona.id}"><i class="fas fa-trash-alt">Borrar</i></a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
+				<c:forEach var="persona" items="${listaContactos}"
+					varStatus="status">
+					<tr>
+						<td>${persona.nombre}</td>
+						<td><c:forEach var="telefonos" items="${persona.telefonos}"
+							varStatus="status">
+							${telefonos.telefono} |
+						</c:forEach>	</td>
+							
+						<td><a href="edit?id=${persona.idpersona}"><i
+								class="fas fa-user">Ficha</i></a> | <a
+							href="delete?id=${persona.idpersona}"><i
+								class="fas fa-trash-alt">Borrar</i></a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
                 </table>
                 <p>
                     <!-- en el new tendremos que poner -->

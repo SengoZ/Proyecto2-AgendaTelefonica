@@ -1,7 +1,7 @@
 /* NAVEGACIÓN*/
 
 nav{
-   background:  url(images/bg-pattern.png), url(images/Burning%20Orange.jpg);
+    background:  url(/Proyecto2-AgendaTelefonica/src/main/webapp/WEB-INF/images/bg-pattern.png), url("resources/css/Burning Orange.jpg");
     background-repeat: repeat, no-repeat;
     background-size: auto, cover;
     background-attachment: fixed;
