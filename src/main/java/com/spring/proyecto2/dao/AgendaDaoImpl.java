@@ -10,15 +10,8 @@ import org.springframework.stereotype.Repository;
  * Implementación de la interfaz de DAO de la aplicación de Agenda telefónica (Repositorio)
  *
  */
-
-@Repository
 public class AgendaDaoImpl{
 	
-	private final AgendaDao repository;
-	
-	public AgendaDaoImpl(AgendaDao repository) {
-	     this.repository = repository;
-	 }
 	
 	
 }
