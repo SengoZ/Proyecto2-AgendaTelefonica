@@ -1,6 +1,5 @@
 package com.spring.proyecto2.dao;
 
-import org.springframework.stereotype.Repository;
 
 /**
  * 
