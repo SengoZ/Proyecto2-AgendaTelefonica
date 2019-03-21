@@ -21,8 +21,9 @@ public class Pruebas_JPA extends TestCase{
 
 	@Test
 	@Transactional
-	public void testDeleteAutentiaTable() {
+	public void testDeleteTable() {
 		repository.deleteAll();
 		assertTrue(repository.findAll().size() == 0);
 	}
+
 }
