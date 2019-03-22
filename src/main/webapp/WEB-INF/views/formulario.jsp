@@ -12,8 +12,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Formulario de contacto</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
+	<spring:url value="resources/css/estilos.css" var="estilos"/>
+    <link href="${estilos}" rel="stylesheet" />
+    <spring:url value="resources/css/font-awesome.css" var="font-awesome"/>
+    <link href="${font-awesome}" rel="stylesheet" />  
 
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/script.js"></script>
@@ -33,68 +35,64 @@
             </section>
         </section>
 
-        <form action="" class="form_contact">
+        <form:form class="form_contact" method="post" modelAttribute="persona" action="save" var="persona" item =" ${persona}">
             <h2>Alta/Modificación de contactos</h2>
-                        <div class = "formularioCliente" id = "formularioCliente">
+            <div class = "formularioCliente" id = "formularioCliente" >
 
             <div class="form">
-            <label for="form">Nombre</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Ej. Freddie">
+            <form:label for="form" path="nombre">Nombre</form:label>
+            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.nombre}" path="nombre"/>
             </div>
 
-            <div class="form-group">
-            <label for="formGroupExampleInput2">Primer Apellido</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ej. Mercury">
+			<div class="form">
+            <form:label for="form" path="apellido1">Primer Apellido</form:label>
+            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.apellido1}" path="apellido1"/>
             </div>
-
-            <div class="form-group">
-            <label for="formGroupExampleInput2">Segundo Apellido</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ej. García">
+            
+            <div class="form">
+            <form:label for="form" path="apellido2">Segundo Apellido</form:label>
+            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.apellido2}" path="apellido2"/>
             </div>
-
-            <div class="form-group">
-            <label for="formGroupExampleInput2">DNI</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ej. 05236780D">
+          	
+          	<div class="form">
+            <form:label for="form" path="dni">DNI</form:label>
+            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.dni}" path="dni"/>
             </div>
-
-            <div class="form-group">
-            <label for="formGroupExampleInput2">Fecha de Nacimiento</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ej. 05/07/1985">
+			
+			<div class="form">
+            <form:label for="form" path="fechanacimiento">Fecha de Nacimiento</form:label>
+            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.fechanacimiento}" path="fechanacimiento"/>
+            
             </div>
-
-            <div class="form-group">
-            <label for="formGroupExampleInput2">Telefono</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ej. 05/07/1985">
+            
+            <div class="form">
+            <form:label for="form" path="telefonos[0].telefono">Teléfono</form:label>
+            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.telefonos[0].telefono}" path="telefonos[0].telefono"/>
             </div>
-
-            <div class="form-group">
-            <label for="formGroupExampleInput2">Direccion</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ej. C/Anabel Segura 11">
+			
+			<div class="form">
+            <form:label for="form" path="direccions[0].direccion">Dirección</form:label>
+            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.direccions[0].direccion}" path="direccions[0].direccion"/>
             </div>
-
-            <div class="form-group">
-            <label for="formGroupExampleInput2">Código postal</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ej. 28500">
+            
+            <div class="form">
+            <form:label for="form" path="direccions[0].codpostal">Código postal</form:label>
+            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.direccions[0].codpostal}" path="direccions[0].codpostal"/>
             </div>
-
-            <div class="form-group">
-            <label for="formGroupExampleInput2">Localidad</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ej. Pozuelo">
+            
+            <div class="form">
+            <form:label for="form" path="direccions[0].localidad">Localidad</form:label>
+            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.direccions[0].localidad}" path="direccions[0].localidad"/>
             </div>
-
-            <div class="form-group">
-            <label for="formGroupExampleInput2">Provincia</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Ej. Madrid">
-            </div>
-
+         
             <div>
-            <button type="button" class="btn btn-primary btn-lg">Enviar</button>
+            <a href="save"><button type="submit" class="btn btn-primary btn-lg">Enviar</button></a>
             </div>
 
             
         
         </div>
-        </form>
+        </form:form>
 </section>
    
 
