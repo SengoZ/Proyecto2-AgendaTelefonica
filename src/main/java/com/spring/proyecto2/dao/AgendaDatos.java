@@ -46,6 +46,7 @@ public class AgendaDatos{
 		}
 		if(cont!=provincias.findAll().size()) {
 			provincias.deleteAll();
+			entityManager.createNativeQuery("ALTER TABLE provincia AUTO_INCREMENT = 1").executeUpdate(); 
 			cargarProvinciasBBDD(listaProv);
 		}
 	}
