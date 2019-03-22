@@ -70,6 +70,7 @@ public class AgendaServiceImpl implements AgendaService{
 		Persona user = buscarId(id);
 		if (user != null) {
 			repository.delete(user);
+			System.out.println("-----------La persona no es nula ----");
 		}
 	}
 
