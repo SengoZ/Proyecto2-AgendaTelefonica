@@ -17,6 +17,12 @@ import com.spring.proyecto2.services.AgendaServiceImpl;
 
 import junit.framework.TestCase;
 
+
+/**
+ * 
+ * @author Andrés
+ *
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class Pruebas_autowired extends TestCase{
