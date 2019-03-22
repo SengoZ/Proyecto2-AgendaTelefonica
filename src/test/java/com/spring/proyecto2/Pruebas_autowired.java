@@ -22,7 +22,7 @@ import junit.framework.TestCase;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Pruebas_JPA extends TestCase{
+public class Pruebas_autowired extends TestCase{
 
 	@Autowired
 	AgendaDao repository;
@@ -35,30 +35,5 @@ public class Pruebas_JPA extends TestCase{
 		assertThat(repository, instanceOf(AgendaDao.class));
 		assertThat(services, instanceOf(AgendaServiceImpl.class));
     }
-	
-	@Test
-    public void testCarExists() {
-            try {
-                Class.forName("Hola");
-            } catch(ClassNotFoundException e) {
-            	Assert.fail("Should create a class called 'Hola'.");
-            }
-     }
-	
-	@Test
-	@Transactional
-	public void testDeleteTable() {
-		repository.deleteAll();
-		assertTrue(repository.findAll().size() == 0);
-	}
-	
-	@Test
-	@Transactional
-	public void testDeleteId() {
-		int init = repository.findAll().size();
-		if(repository.findById(2)!=null)
-			repository.deleteById(2);
-		assertTrue((init-1) == repository.findAll().size());
-	}
 
 }
