@@ -2,8 +2,11 @@ package com.spring.proyecto2.control;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,19 +33,23 @@ public class AgendaController {
 	 */
 	@RequestMapping("/")
 	public ModelAndView listContactos() {
-		System.out.println("Entra a /");
 		List<Persona> listPers = agendaService.list();
-		System.out.println("El metodo de listar no da error");
 		ModelAndView model = new ModelAndView("listadoCont");
 		for(Persona i:listPers) {
 			System.out.println(i.getNombre());
 		}
-		System.out.println("Model and View se crea");
 		model.addObject("listaContactos", listPers);
-		System.out.println("Al final pasa algo compadre");
 		return model;
 	}
 	
+	@GetMapping("/delete")
+	public ModelAndView borrarContacto(HttpServletRequest request) {
+		int idContacto = Integer.parseInt(request.getParameter("id"));
+		System.out.println("La id seleccionada es "+idContacto);
+		agendaService.delete(idContacto);
+		System.out.println("------ se supone que borro");
+		return new ModelAndView("redirect:/");
+	}
 	
 	
 	

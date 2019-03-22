@@ -88,7 +88,7 @@
                 
                 <div class="row" id="buscar">
                     <div class="col-md-11">
-                       <form method="post" action="buscarId?nombre=buscarNombre">
+                       <form method="get" action="buscarId?nombre=${buscarNombre}">
                            <p>
                               <input type="text" name="buscarNombre" placeholder="Buscar por nombre">
                            </p>

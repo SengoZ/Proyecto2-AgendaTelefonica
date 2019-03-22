@@ -49,7 +49,7 @@ public class Persona implements Serializable {
 	 */
 	
 	//bi-directional many-to-one association to Direccion
-	@OneToMany(mappedBy="persona")
+	@OneToMany(mappedBy="persona", cascade = CascadeType.ALL)
 	private List<Direccion> direccions;
 
 	/**
@@ -58,7 +58,7 @@ public class Persona implements Serializable {
 	 */
 	
 	//bi-directional many-to-one association to Telefono
-	@OneToMany(mappedBy="persona")
+	@OneToMany(mappedBy="persona", cascade = CascadeType.ALL)
 	private List<Telefono> telefonos;
 	
 	/**
