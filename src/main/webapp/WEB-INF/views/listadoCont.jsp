@@ -116,7 +116,7 @@
 							${telefonos.telefono} |
 						</c:forEach>	</td>
 							
-						<td><a href="edit?id=${persona.idpersona}"><i
+						<td><a href="ficha?id=${persona.idpersona}"><i
 								class="fas fa-user">Ficha</i></a> | <a
 							href="delete?id=${persona.idpersona}"><i
 								class="fas fa-trash-alt">Borrar</i></a></td>
