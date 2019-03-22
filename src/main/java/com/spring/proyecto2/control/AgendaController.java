@@ -97,6 +97,19 @@ public class AgendaController {
 	}
 	
 	
+	/**
+	 * Metodo para editar una persona, la cual enviamos al formulario de añadir y modificamos ahí sus atributos.
+	 * @param request: recoge el id de la persona que quieres editar.
+	 * @return model: devuelve un model el cual lleva un objeto de tipo persona
+	 */
+	@GetMapping("/edit")
+	public ModelAndView editContacto(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("formulario");
+		model.addObject("persona", agendaService.buscarId(Integer.parseInt(request.getParameter("id"))));
+		return model;
+	}
+	
+	
 	
 	
 	
