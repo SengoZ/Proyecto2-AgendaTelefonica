@@ -28,6 +28,9 @@ public class Provincia implements Serializable {
 
 	public Provincia() {
 	}
+	public Provincia(String provincia) {
+		this.provincia = provincia;
+	}
 
 	public int getIdprovincia() {
 		return this.idprovincia;
