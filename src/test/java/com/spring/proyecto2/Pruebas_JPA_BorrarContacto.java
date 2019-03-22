@@ -12,6 +12,12 @@ import com.spring.proyecto2.dao.AgendaDao;
 
 import junit.framework.TestCase;
 
+/**
+ * 
+ * @author Amador
+ *
+ */
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class Pruebas_JPA_BorrarContacto extends TestCase{

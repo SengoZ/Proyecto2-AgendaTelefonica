@@ -13,6 +13,12 @@ import com.spring.proyecto2.dao.AgendaDao;
 import com.spring.proyecto2.model.Persona;
 
 import junit.framework.TestCase;
+
+/**
+ * 
+ * @author Sheila
+ *
+ */
 @RunWith(SpringRunner.class)
 public class Pruebas_JPA_AltaContacto extends TestCase {
 
