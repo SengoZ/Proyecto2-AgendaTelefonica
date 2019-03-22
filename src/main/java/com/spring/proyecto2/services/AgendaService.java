@@ -47,5 +47,5 @@ public interface AgendaService {
 	 * Metodo que relaciona la cpa de control con el repositorio, en la cual editamos un contacto de la agenda a partir de un id como parámetro de entrada
 	 * @param id: identificador del usuario a editar.
 	 */
-	public void edit(int id);
+	void edit(Persona pers);
 }

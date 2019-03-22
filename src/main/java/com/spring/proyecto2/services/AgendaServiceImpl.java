@@ -1,6 +1,7 @@
 package com.spring.proyecto2.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,10 +75,12 @@ public class AgendaServiceImpl implements AgendaService{
 		}
 	}
 
+	/**
+	 * Metodo por el cual editamos un contacto de la agenda, a paritr de un id
+	 * @param id: Id identificador del contacto a editar
+	 */
 	@Override
-	public void edit(int id) {
-		// TODO Auto-generated method stub
-		
+	public void edit(Persona pers) {
+		repository.save(pers);
 	}
-
 }
