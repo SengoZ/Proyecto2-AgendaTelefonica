@@ -74,4 +74,10 @@ public class AgendaServiceImpl implements AgendaService{
 		}
 	}
 
+	@Override
+	public void edit(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
