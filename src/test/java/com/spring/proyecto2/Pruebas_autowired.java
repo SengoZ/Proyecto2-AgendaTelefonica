@@ -4,15 +4,12 @@ package com.spring.proyecto2;
 import static org.hamcrest.CoreMatchers.instanceOf;
 
 import org.junit.Test;
-import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertThat;
-
-import javax.transaction.Transactional;
 
 import com.spring.proyecto2.dao.AgendaDao;
 import com.spring.proyecto2.services.AgendaService;
