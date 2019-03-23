@@ -1,6 +1,5 @@
 package com.spring.proyecto2.dao;
 
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,8 +26,11 @@ public class AgendaDatos{
 			"Cantabria", "Segovia", "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia",
 			"Valladolid", "Vizcaya", "Zamora", "Zaragoza", "Ceuta", "Melilla"};
 	
-	@Autowired
-	private AgendaDao repository;
+	/*
+	 * @Autowired
+	 * private AgendaDao repository;
+	 */
+	
 	@Autowired
 	private AgendaProvincias provincias;
 

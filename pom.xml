@@ -64,7 +64,6 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-			<version>${javax.version}</version>
 			<!--<scope>provided</scope> -->
 		</dependency>
 		<!-- Testing -->
@@ -72,7 +71,6 @@
 	    <dependency>
 	        <groupId>junit</groupId>
 	        <artifactId>junit</artifactId>
-	        <version>${junit.version}</version>
 	        <scope>test</scope>
 	    </dependency>
 	</dependencies>
