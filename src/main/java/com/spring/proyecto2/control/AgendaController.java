@@ -55,8 +55,31 @@ public class AgendaController {
 		System.out.println("La id seleccionada es "+idContacto);
 		Persona persona = agendaService.buscarId(idContacto);
 		System.out.println("------ se supone que buscó la ficha");
-		ModelAndView model = new ModelAndView("fichaCont");
-		model.addObject("", persona);
+		ModelAndView model = new ModelAndView("ficha");
+		model.addObject("persona", persona);
+		return model;
+	}
+	
+	/**
+	 * Método para volver a la página de inicio desde la ficha del contacto
+	 * @return Redirecciona a la página principal
+	 */
+	@GetMapping("/vuelta")
+	public ModelAndView vueltaLista() {
+		return new ModelAndView("redirect:/");
+	}
+	
+	/**
+	 * Metodo para editar una persona, la cual enviamos al formulario de añadir y modificamos ahí sus atributos.
+	 * @param request: recoge el id de la persona que quieres editar.
+	 * @return model: devuelve un model el cual lleva un objeto de tipo persona
+	 */
+	@GetMapping("/editar")
+	public ModelAndView editarPersona(HttpServletRequest request) {
+		int idContacto = Integer.parseInt(request.getParameter("id"));
+		Persona contacto = agendaService.buscarId(idContacto);
+		ModelAndView model = new ModelAndView("formulario");
+		model.addObject("persona", contacto);
 		return model;
 	}
 	
