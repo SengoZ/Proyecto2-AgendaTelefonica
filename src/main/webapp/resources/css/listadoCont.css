@@ -1,23 +1,19 @@
-/* NAVEGACIÓN*/
-
 nav{
-    background:  url(/Proyecto2-AgendaTelefonica/src/main/webapp/WEB-INF/images/bg-pattern.png), url("resources/css/Burning Orange.jpg");
-    background-repeat: repeat, no-repeat;
+    background-repeat: no-repeat;
     background-size: auto, cover;
-    background-attachment: fixed;
     padding: 0;
     margin: 0;
-    padding-bottom: 50px;
-    padding-top: 50 px;
 }
     #principio{
-        padding-top: 20px; 
         color: white;
     }
     #arriba{
-        position: fixed; /*para dejar el menú fijo*/
-        top: 10;
+        position: fixed;
         width: 100%;
+        margin: 0; 
+        height:5%; 
+        padding-top:0.5em;
+        z-index: 100;
     }
     #empieza{
       font-size: 20px;
@@ -29,14 +25,13 @@ nav{
 /*HEADER*/
 
 header{
-    background:  url(images/bg-pattern.png), url(images/Burning%20Orange.jpg);
-    background-repeat: repeat, no-repeat;
+    background-repeat: no-repeat;
     background-size: auto, cover;
     background-attachment: fixed;
     padding: 0;
     margin: 0;
-    padding-bottom: 50px;
-    padding-top: 200 px;
+    padding-bottom: 5.5em;
+    padding-top: 2em;
 }
 
     #entrada{
@@ -77,12 +72,17 @@ header{
     #buscar{
         color: black;
         text-align: right;
-        padding-top: 100px;
+        padding-top: 1em;
     }
     #listado{
         background-color: RGB(245,208,05);
         color:wheat;
         background-position: center;
+        height: 50em;
+        
+    }
+    #table{
+    
     }
     table{
         margin: 1px;
