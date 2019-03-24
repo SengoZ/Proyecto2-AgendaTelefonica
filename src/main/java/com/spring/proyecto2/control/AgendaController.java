@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.proyecto2.model.Persona;
 import com.spring.proyecto2.services.AgendaService;
@@ -89,12 +90,13 @@ public class AgendaController {
 	 * @return Redirecciona al JSP listadoCont con el contacto eliminado
 	 */
 	@GetMapping("/delete")
-	public ModelAndView borrarContacto(HttpServletRequest request) {
+	public ModelAndView borrarContacto(HttpServletRequest request, RedirectAttributes redirAtt) {
+		ModelAndView mv = new ModelAndView("redirect:/#myModal");
 		int idContacto = Integer.parseInt(request.getParameter("id"));
-		System.out.println("La id seleccionada es "+idContacto);
+		String out = agendaService.buscarId(idContacto).getNombre()+" "+agendaService.buscarId(idContacto).getApellido1()+" ha sido eliminado de sus contactos!!";
+		redirAtt.addFlashAttribute("message", out);
 		agendaService.delete(idContacto);
-		System.out.println("------ se supone que borro");
-		return new ModelAndView("redirect:/");
+	    return mv;
 	}
 	
 	/**

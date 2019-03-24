@@ -72,7 +72,6 @@ header{
     #buscar{
         color: black;
         text-align: right;
-        padding-top: 1em;
     }
     #listado{
         background-color: RGB(245,208,05);
@@ -80,9 +79,6 @@ header{
         background-position: center;
         height: 50em;
         
-    }
-    #table{
-    
     }
     table{
         margin: 1px;

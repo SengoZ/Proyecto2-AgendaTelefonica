@@ -24,6 +24,45 @@
     
     <spring:url value="resources/css/listadoCont.css" var="list" />
 	<link href="${list}" rel="stylesheet" />
+	<style type="text/css">
+		/* The Modal (background) */
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			padding-top: 100px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /* Enable scroll if needed */
+			background-color: rgb(0, 0, 0); /* Fallback color */
+			background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+		}
+		
+		/* Modal Content */
+		.modal-content {
+			background-color: #fefefe;
+			margin: auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 40%;
+		}
+		
+		/* The Close Button */
+		.close {
+			color: #aaaaaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+		
+		.close:hover, .close:focus {
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	</style>
 </head>
 <body>
     <!-- Navigation -->
@@ -79,13 +118,13 @@
 	        <div class="col-md-5" >
 	            <h1>AGENDA DE CONTACTOS</h1>
 	        </div>
-	        <div class="col-md-7">
-	            <a href="new"><button type="button" class="btn btn-outline-info" id="alta">Nuevo contacto</button></a>
-	        </div>
 	    </div>
                 
 	     <div class="row" id="buscar">
-	         <div class="col-md-11">
+		     <div class="col-md-4" style="padding-bottom: 1em;">
+		     	<a href="new"><button type="button" class="btn btn-outline-info" id="alta">Nuevo contacto</button></a>
+		     </div>
+	         <div class="col-md-7"  style="padding-top: 3em;">
 	            <form method="get" action="buscarId?nombre=${buscarNombre}">
 	                <p>
 	                   <input type="text" name="buscarNombre" placeholder="Buscar por nombre">
@@ -117,15 +156,44 @@
 							</td>
 							
 							<td>
-								<a href="ficha?id=${persona.idpersona}"><i class="fas fa-user">Ficha</i></a> | <a href="delete?id=${persona.idpersona}"><i class="fas fa-trash-alt">Borrar</i></a>
+								<a href="ficha?id=${persona.idpersona}"><i class="fas fa-user">Ficha</i></a> | <a href="delete?id=${persona.idpersona}" id="borrar"><i class="fas fa-trash-alt">Borrar</i></a>
 							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 	     </div>
-         
+         <!-- The Modal -->
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span style="align-content: right;" class="close">&times;</span>
+				<p style="text-align: center; color: black;">${message}</p>
+			</div>
+	
+		</div>
     </div>
+	<script>
+		var modal = document.getElementById('myModal');
+		var span = document.getElementsByClassName("close")[0];
+		var myVar= '${message}';
+		if(myVar!=""){
+			modal.style.display = "block";
+			span.onclick = function() {
+				modal.style.display = "none";
+				window.location.hash = '#listado';
+			    window.location.reload(true);
+			}
+			window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+					window.location.hash = '#listado';
+				    window.location.reload(true);
+				}
+			}	
+		}
+		
+	</script>
 
 
 
