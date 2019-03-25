@@ -5,14 +5,17 @@ nav{
     margin: 0;
 }
     #principio{
-        color: white;
+        color: black;
     }
     #arriba{
+        background: white;
         position: fixed;
         width: 100%;
         margin: 0; 
         height:5%; 
-        padding-top:0.5em;
+        padding-bottom: 35px;
+        padding-top: 10px;
+        height:5%; 
         z-index: 100;
     }
     #empieza{
@@ -24,14 +27,11 @@ nav{
 
 /*HEADER*/
 
-header{
-    background-repeat: no-repeat;
-    background-size: auto, cover;
-    background-attachment: fixed;
+header{  
     padding: 0;
     margin: 0;
-    padding-bottom: 5.5em;
-    padding-top: 2em;
+    padding-bottom: 50px;
+    padding-top: 100px;
 }
 
     #entrada{
@@ -63,24 +63,182 @@ header{
     }
 
 /*MAIN*/
+	#listadox{
+		padding-top: 50px;
+	    padding-bottom: 50px;
+	}
+	
+	#lupa{
+		font-size: 50px;
+	}
+	
+    .form_wrap{
+    width: 80%;
+    height: 900px;
+    margin: 0px auto;
+    display: flex;
 
-    h1{
-        color: black;
-        text-decoration-style: double;
-        padding-top: 30px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    
+    
+    border-radius: 100px;
+    overflow: hidden;   
+	}
+
+	.cantact_info::before{
+    content: '';
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: RGB(255,145,160);
+    opacity: 0.9;
+	}
+	
+    .cantact_info{
+    width: 25%;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(/Proyecto2-AgendaTelefonica/src/main/webapp/WEB-INF/images/fondo.jpg);
+    background-size: cover;
+    background-position: center center;
+
+}
+
+	.info_title,
+	.info_items{
+	    position: relative;
+	    z-index: 2;
+	    color: #fff;
+	}
+	
+	.info_title{
+	    margin-bottom: 60px;
+	}
+	
+	.info_title span{
+	    font-size: 100px;
+	    display: block;
+	    text-align: center;
+	    margin-bottom: 15px;
+	}
+	
+	.info_title h2{
+	    font-size: 35px;
+	    text-align: center;
+	}
+	
+	.info_items p{
+	    display: flex;
+	    align-items: center;
+	
+	    font-size: 16px;
+	    font-weight: 600;
+	    margin-bottom: 10px;
+	}
+	
+	.info_items p:nth-child(1) span{
+	    font-size: 30px;
+	    margin-right: 10px;
+	}
+	
+	.info_items p:nth-child(2) span{
+	    font-size: 50px;
+	    margin-right: 15px;
+	    margin-left: 4px;
+	}
+    
+    .form_contact{
+    width: 75%;
+    padding: 30px 40px;
+}
+
+	.form_contact h2{
+		font-size: 25px;
+		font-weight: 600;
+		color: #303030;
+		margin-bottom: 30px;
+	}
+	
+	.form_contact .user_info{
+	    display: flex;
+	    flex-direction: column;
+	}
+	
+	.form_contact label{
+	    font-weight: 600;
+	}
+	
+	.form_contact input,
+	.form_contact textarea{
+	    width: 100%;
+	    padding: 8px 0px 5px;
+	    margin-bottom: 20px;
+	
+	    border: none;
+	    border-bottom: 2px solid #D1D1D1;
+	
+	    font-family: 'Open sans';
+		color: #5A5A5A;
+		font-size: 14px;
+		font-weight: 400;
+	}
+	
+	.form_contact textarea{
+	    max-width: 100%;
+	    min-width: 100%;
+	    max-height: 90px;
+	}
+	
+	.form_contact input[type="button"]{
+	    width: 180px;
+		background: #4091EC;
+		padding: 10px;
+		border: none;
+		border-radius: 25px;
+	
+	    align-self: flex-end;
+	
+	    color: #fff;
+		font-family: 'Open sans';
+		font-size: 16px;
+		font-weight: 600;
+		cursor: pointer;
+	}
+	
+	.form_contact input[type="button"]:hover{
+	    background: #3371B6;
+	}
+    #alta{
+        margin-top: 40px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-color: crimson;
+        border-radius: 50px;    /*para dejarlo redondeado*/
     }
-    #buscar{
-        color: black;
-        text-align: right;
+    #buscador{
+    	padding-top: 50px;
     }
     #listado{
-        background-color: RGB(245,208,05);
         color:wheat;
         background-position: center;
         height: 50em;
         
     }
     table{
+    	background-color: white;
         margin: 1px;
         background-position: center;
         text-align: center;
@@ -95,33 +253,22 @@ header{
     }
 
     #nombre{
-        width: 500px;
+    	color: black;
         border-right: 5px;
     }
     #telefono{
+    	color: black;
         width: 200px;
     }
-    #alta{
-        margin-top: 40px;
-        color: black;
-        font-weight: bold;
-        font-size: 20px;
-        border-color: crimson;
-        border-radius: 50px;    /*para dejarlo redondeado*/
-        background: url(images/Burning%20Orange.jpg);
-        background-size: cover;
-    }
+    
     #cabecera{
-        background: url(images/Burning%20Orange.jpg);
-        background-size: cover;
+    	color: black;
         font-weight: bold;
     }
 
 /*ASIDE*/
 
 aside{
-    background: url(images/bg-cta.jpg);
-    background-size: cover;
     padding: 0;
     margin: 0;
     padding-top: 200px;
