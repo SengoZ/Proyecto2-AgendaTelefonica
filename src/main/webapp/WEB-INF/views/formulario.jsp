@@ -81,11 +81,15 @@
             </div>
             
             <div class="form">
-            <form:label for="form" path="direccions[0].localidad">Localidad</form:label>
-            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.direccions[0].localidad}" path="direccions[0].localidad"/>
+            <form:label for="form" path="direccions[0].localidad">Provincia</form:label>
+            <form:select type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.direccions[0].localidad}" path="direccions[0].localidad" items="${listaProv}">
+            	<c:forEach var="item" items="${listaProv}">
+		            <option value="${provincia.idprovincia}">${provincia.provincia}</option>
+		    	</c:forEach>
+            </form:select>
             </div>
          
-            <div>
+            <div style="padding-left: 50%; padding-top: 25%">
             <a href="save"><button type="submit" class="btn btn-primary btn-lg">Enviar</button></a>
             </div>
 

@@ -6,6 +6,7 @@ package com.spring.proyecto2.services;
 import java.util.List;
 
 import com.spring.proyecto2.model.Persona;
+import com.spring.proyecto2.model.Provincia;
 
 /**
  * @author Sheila Garcia, Cesar Marcos, Amador Caceres, Andres Gomez
@@ -21,6 +22,12 @@ public interface AgendaService {
 	 * @return listado Listado de personas incluidas en la agenda
 	 */
 	public List<Persona> list();
+	
+	/**
+	 * Metodo que relaciona la capa de control con el repositorio en la cual nos devolverá un listado de provincias.
+	 * @return listado Listado de provincias incluidas en la tabla provincias
+	 */
+	public List<Provincia> listProv();
 	
 	/**
 	 * Metodo que relaciona la capa de control con el repositorio en la cual podemos introducir un contacto.

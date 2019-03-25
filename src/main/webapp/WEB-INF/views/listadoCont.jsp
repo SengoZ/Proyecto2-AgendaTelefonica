@@ -52,7 +52,7 @@
 		/* The Close Button */
 		.close {
 			color: #aaaaaa;
-			float: right;
+			float: left;
 			font-size: 28px;
 			font-weight: bold;
 		}
@@ -151,7 +151,7 @@
 							<td>${persona.apellido2}</td>
 							<td>
 								<c:forEach var="telefonos" items="${persona.telefonos}" varStatus="status">
-									${telefonos.telefono} 
+									${telefonos.telefono} <br />
 								</c:forEach>
 							</td>
 							
@@ -163,16 +163,16 @@
 				</tbody>
 			</table>
 	     </div>
-         <!-- The Modal -->
-		<div id="myModal" class="modal">
-			<!-- Modal content -->
-			<div class="modal-content">
-				<span style="align-content: right;" class="close">&times;</span>
-				<p style="text-align: center; color: black;">${message}</p>
-			</div>
-	
-		</div>
     </div>
+    <!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<p style="text-align: center; color: black;">${message}</p>
+		</div>
+
+	</div>
 	<script>
 		var modal = document.getElementById('myModal');
 		var span = document.getElementsByClassName("close")[0];

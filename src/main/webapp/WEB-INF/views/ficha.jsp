@@ -88,7 +88,7 @@
             </div>
             
             <div class="form">
-            <form:label for="form" path="direccions[0].localidad">Localidad</form:label>
+            <form:label for="form" path="direccions[0].localidad">Provincia</form:label>
             <p>${persona.direccions[0].localidad}</p>
             <p id="invisible">.</p>
             <p id="invisible">.</p>           
