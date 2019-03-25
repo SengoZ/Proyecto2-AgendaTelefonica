@@ -12,6 +12,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Formulario de contacto</title>
 
+	 <!--bootstrap-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+	
 	<spring:url value="resources/css/estilos.css" var="estilos"/>
     <link href="${estilos}" rel="stylesheet" />
     <spring:url value="resources/css/font-awesome.css" var="font-awesome"/>
@@ -20,11 +28,11 @@
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/script.js"></script>
 </head>
-<body>
+<body style="background:  url('resources/images/bg-pattern.png'), url('resources/images/Burning_Orange.jpg'); background-repeat: repeat, no-repeat; background-size: auto, cover; background-attachment: fixed;">
 
     <section class="form_wrap">
 
-        <section class="cantact_info">
+        <section class="cantact_info" style="background-image:  url('resources/images/fondo.jpg'); background-size: cover; background-position: center;"> 
             <section class="info_title">
                 <span class="fa fa-user-circle"></span>
                 <h2>ALTA/MODIFICACIÓN<br>DE CONTACTOS</h2>
