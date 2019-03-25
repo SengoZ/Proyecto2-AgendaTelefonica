@@ -1,5 +1,6 @@
 package com.spring.proyecto2.control;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.proyecto2.model.Persona;
+import com.spring.proyecto2.model.Provincia;
 import com.spring.proyecto2.services.AgendaService;
 
 /**
@@ -38,9 +40,6 @@ public class AgendaController {
 	public ModelAndView listContactos() {
 		List<Persona> listPers = agendaService.list();
 		ModelAndView model = new ModelAndView("listadoCont");
-		for(Persona i:listPers) {
-			System.out.println(i.getNombre());
-		}
 		model.addObject("listaContactos", listPers);
 		return model;
 	}
@@ -67,7 +66,7 @@ public class AgendaController {
 	 */
 	@GetMapping("/vuelta")
 	public ModelAndView vueltaLista() {
-		return new ModelAndView("redirect:/");
+		return new ModelAndView("redirect:/#listado");
 	}
 	
 	/**
@@ -106,6 +105,12 @@ public class AgendaController {
 	@GetMapping("/new")
 	public ModelAndView añadirContacto() {
 		ModelAndView model = new ModelAndView("formulario");
+		List<Provincia> listProv = agendaService.listProv();
+		List<String> nombreProv = new ArrayList<String>(); 
+		for(Provincia p: listProv) {
+			nombreProv.add(p.getProvincia());
+		}
+		model.addObject("listaProv", nombreProv);
 		model.addObject("persona", new Persona());
 		return model;
 	}

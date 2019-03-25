@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.proyecto2.dao.AgendaDao;
+import com.spring.proyecto2.dao.AgendaProvincias;
 import com.spring.proyecto2.model.Persona;
+import com.spring.proyecto2.model.Provincia;
 
 /**
  * @author Sheila Garcia, Cesar Marcos, Amador Caceres, Andres Gomez
@@ -23,6 +25,9 @@ public class AgendaServiceImpl implements AgendaService{
 
 	@Autowired
 	private AgendaDao repository;
+	
+	@Autowired
+	private AgendaProvincias provincias;
 	
 	@PostConstruct
     public void initHello() {
@@ -77,7 +82,6 @@ public class AgendaServiceImpl implements AgendaService{
 		Persona user = buscarId(id);
 		if (user != null) {
 			repository.delete(user);
-			System.out.println("-----------La persona no es nula ----");
 		}
 	}
 
@@ -88,5 +92,18 @@ public class AgendaServiceImpl implements AgendaService{
 	@Override
 	public void edit(Persona pers) {
 		repository.save(pers);
+	}
+
+	
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Implementación del método en el cual nos devolverá un listado de provincias.
+	 * @return List<Provincia> listado de provincias incluidas en la tabla provincia
+	 */
+	@Override
+	public List<Provincia> listProv() {
+		// TODO Auto-generated method stub
+		return provincias.findAll();
 	}
 }
