@@ -13,6 +13,7 @@ import com.spring.proyecto2.model.Provincia;
  * @author Grupo 3: Amador Cáceres, Cesar Marcos, Andrés Gomez y Sheila García
  * @version 1.0
  * 
+ *Clase para verificar que están todas las provincias registradas en la BBDD
  *
  */
 
