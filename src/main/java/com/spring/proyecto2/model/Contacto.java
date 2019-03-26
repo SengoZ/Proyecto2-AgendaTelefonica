@@ -1,11 +1,22 @@
 package com.spring.proyecto2.model;
 
+/**
+ * 
+ * @author Grupo 3: Amador Cáceres, Cesar Marcos, Andrés Gomez y Sheila García
+ *
+ *         Contacto es el encargado de unificar Persona, Direccion, Telefono y
+ *         Provincia en objetos separados para facilitar la inserción de un
+ *         contacto en la agenda.
+ * 
+ */
+
 public class Contacto {
-	
+
 	private Persona pers;
 	private Direccion dir;
 	private Telefono tel;
 	private Provincia prov;
+
 	public Contacto() {
 		super();
 	}
@@ -15,7 +26,7 @@ public class Contacto {
 		this.pers = pers;
 		this.dir = dir;
 		this.tel = tel;
-		this.prov=prov;
+		this.prov = prov;
 	}
 
 	public Persona getPers() {
@@ -41,20 +52,13 @@ public class Contacto {
 	public void setTel(Telefono tel) {
 		this.tel = tel;
 	}
-	
+
 	public void setProv(Provincia prov) {
 		this.prov = prov;
 	}
-	
+
 	public Provincia getProv() {
 		return prov;
 	}
 
-	@Override
-	public String toString() {
-		return "Contacto [pers=" + pers + ", dir=" + dir + ", tel=" + tel + "]";
-	}
-	
-	
-	
 }

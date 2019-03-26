@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -78,7 +78,7 @@
             </div>
             
             <div class="form">
-            <form:label for="form" path="telefonos[0].telefono">Teléfono:</form:label>
+            <form:label for="form" path="telefonos[0].telefono">TelÃ©fono:</form:label>
             <br />
             <c:forEach var="telefonos" items="${persona.telefonos}" varStatus="status">
 				${telefonos.telefono} <br />
@@ -87,13 +87,13 @@
 			</div>
 			
 			<div class="form">
-            <form:label for="form" path="direccions[0].direccion">Dirección</form:label>
+            <form:label for="form" path="direccions[0].direccion">DirecciÃ³n</form:label>
             <p>${persona.direccions[0].direccion}</p>
             <p id="invisible">.</p>
             </div>
             
             <div class="form">
-            <form:label for="form" path="direccions[0].codpostal">Código postal</form:label>
+            <form:label for="form" path="direccions[0].codpostal">CÃ³digo postal</form:label>
             <p>${persona.direccions[0].codpostal}</p>
             <p id="invisible">.</p>
             </div>
@@ -107,7 +107,7 @@
          
             <div>
             <a href="vuelta"><button type="button" class="btn btn-primary btn-lg">Volver</button></a>
-		    <a href="editar"><button type="button" class="btn btn-primary btn-lg">Editar</button></a>
+		    <a href="editar?id=${persona.idpersona}"><button type="button" class="btn btn-primary btn-lg">Editar</button></a>
             </div>
 
             

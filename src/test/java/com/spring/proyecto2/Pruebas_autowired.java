@@ -33,6 +33,9 @@ public class Pruebas_autowired extends TestCase{
 	@Autowired
 	AgendaService services;
 	
+	/**
+	 * Comprobamos los autowired asociados a repository y a services dan buen resultado.
+	 */
 	@Test
 	public void testInstanceOf() {
 		assertThat(repository, instanceOf(AgendaDao.class));

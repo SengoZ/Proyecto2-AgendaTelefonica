@@ -1,6 +1,5 @@
 package com.spring.proyecto2.model;
 
-
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
@@ -8,26 +7,35 @@ import java.util.List;
 /**
  * 
  * @author Grupo 3: Amador Cáceres, Cesar Marcos, Andrés Gomez y Sheila García
+ * 
+ *         Realacionado con la tabla Provincias. 
+ *         The persistent class for the direccion database table.
  *
  */
 
 @Entity
-@NamedQuery(name="Provincia.findAll", query="SELECT p FROM Provincia p")
+@NamedQuery(name = "Provincia.findAll", query = "SELECT p FROM Provincia p")
 public class Provincia implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Identificador de cada provincia
+	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idprovincia;
 
 	private String provincia;
 
-	//bi-directional many-to-one association to Direccion
-	@OneToMany(mappedBy="provincia")
+	/**
+	 * bi-directional many-to-one association to Direccion
+	 */
+	@OneToMany(mappedBy = "provincia")
 	private List<Direccion> direccions;
 
 	public Provincia() {
 	}
+
 	public Provincia(String provincia) {
 		this.provincia = provincia;
 	}

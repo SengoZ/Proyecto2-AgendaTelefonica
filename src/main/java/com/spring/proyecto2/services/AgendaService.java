@@ -33,9 +33,12 @@ public interface AgendaService {
 	
 	/**
 	 * Metodo que relaciona la capa de control con el repositorio en la cual podemos introducir un contacto.
-	 * @param persona Introducimos al método el contacto que queremos agregar.
+	 * @param pers	parámetro con los datos de la persona
+	 * @param dir	parámetro con los datos de la dirección de la persona.
+	 * @param tel	parámetro con los datos del telefono de la persona.
+	 * @param prov	parámetro copntiene la provincia donde está la persona.
 	 */
-	public void add(Persona persona);
+	public void add(Persona pers, Direccion dir, Telefono tel, Provincia prov);
 	
 	/**
 	 * Metodo que relaciona la capa de control con el repositorio en la cual nos devolverá el contacto de la agenda a partir de un id como parámetro
@@ -54,7 +57,10 @@ public interface AgendaService {
 	
 	/**
 	 * Metodo que relaciona la cpa de control con el repositorio, en la cual editamos un contacto de la agenda a partir de un id como parámetro de entrada
-	 * @param id: identificador del usuario a editar.
+	 * @param pers	parámetro con los datos de la persona
+	 * @param dir	parámetro con los datos de la dirección de la persona.
+	 * @param tel	parámetro con los datos del telefono de la persona.
+	 * @param prov	parámetro copntiene la provincia donde está la persona.
 	 */
 	public void edit(Persona pers, Direccion dir, Telefono tel, Provincia prov);
 }
