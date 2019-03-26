@@ -5,8 +5,10 @@ package com.spring.proyecto2.services;
 
 import java.util.List;
 
+import com.spring.proyecto2.model.Direccion;
 import com.spring.proyecto2.model.Persona;
 import com.spring.proyecto2.model.Provincia;
+import com.spring.proyecto2.model.Telefono;
 
 /**
  * @author Sheila Garcia, Cesar Marcos, Amador Caceres, Andres Gomez
@@ -54,5 +56,5 @@ public interface AgendaService {
 	 * Metodo que relaciona la cpa de control con el repositorio, en la cual editamos un contacto de la agenda a partir de un id como parámetro de entrada
 	 * @param id: identificador del usuario a editar.
 	 */
-	void edit(Persona pers);
+	public void edit(Persona pers, Direccion dir, Telefono tel, Provincia prov);
 }

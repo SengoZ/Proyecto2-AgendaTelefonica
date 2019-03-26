@@ -52,4 +52,5 @@ public class Telefono implements Serializable {
 		this.persona = persona;
 	}
 
+
 }

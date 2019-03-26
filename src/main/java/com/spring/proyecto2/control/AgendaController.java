@@ -1,6 +1,5 @@
 package com.spring.proyecto2.control;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.spring.proyecto2.model.Contacto;
 import com.spring.proyecto2.model.Persona;
 import com.spring.proyecto2.model.Provincia;
 import com.spring.proyecto2.services.AgendaService;
@@ -52,9 +51,7 @@ public class AgendaController {
 	@GetMapping("/ficha")
 	public ModelAndView fichaContacto(HttpServletRequest request) {
 		int idContacto = Integer.parseInt(request.getParameter("id"));
-		System.out.println("La id seleccionada es "+idContacto);
 		Persona persona = agendaService.buscarId(idContacto);
-		System.out.println("------ se supone que buscó la ficha");
 		ModelAndView model = new ModelAndView("ficha");
 		model.addObject("persona", persona);
 		return model;
@@ -66,7 +63,7 @@ public class AgendaController {
 	 */
 	@GetMapping("/vuelta")
 	public ModelAndView vueltaLista() {
-		return new ModelAndView("redirect:/#listado");
+		return new ModelAndView("redirect:/##listadox");
 	}
 	
 	/**
@@ -89,11 +86,9 @@ public class AgendaController {
 	 * @return Redirecciona al JSP listadoCont con el contacto eliminado
 	 */
 	@GetMapping("/delete")
-	public ModelAndView borrarContacto(HttpServletRequest request, RedirectAttributes redirAtt) {
-		ModelAndView mv = new ModelAndView("redirect:/#myModal");
+	public ModelAndView borrarContacto(HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView("redirect:/#listadox");
 		int idContacto = Integer.parseInt(request.getParameter("id"));
-		String out = agendaService.buscarId(idContacto).getNombre()+" "+agendaService.buscarId(idContacto).getApellido1()+" ha sido eliminado de sus contactos!!";
-		redirAtt.addFlashAttribute("message", out);
 		agendaService.delete(idContacto);
 	    return mv;
 	}
@@ -105,13 +100,9 @@ public class AgendaController {
 	@GetMapping("/new")
 	public ModelAndView añadirContacto() {
 		ModelAndView model = new ModelAndView("formulario");
-		List<Provincia> listProv = agendaService.listProv();
-		List<String> nombreProv = new ArrayList<String>(); 
-		for(Provincia p: listProv) {
-			nombreProv.add(p.getProvincia());
-		}
-		model.addObject("listaProv", nombreProv);
-		model.addObject("persona", new Persona());
+		List<Provincia> listaProv = agendaService.listProv(); 
+		model.addObject("listaProv", listaProv);
+		model.addObject("contacto", new Contacto());
 		return model;
 	}
 	
@@ -121,9 +112,9 @@ public class AgendaController {
 	 * @return Redirecciona a la página principal (JSP listadoCont) con el contacto guardado
 	 */
 	@PostMapping("/save")
-	public ModelAndView saveContacto(@ModelAttribute Persona persona) {
-		agendaService.add(persona);
-		return new ModelAndView("redirect:/");
+	public ModelAndView saveContacto(@ModelAttribute Contacto contacto) {
+		agendaService.edit(contacto.getPers(), contacto.getDir(), contacto.getTel(), contacto.getProv());
+		return new ModelAndView("redirect:/#listadox");
 	}
 	
 	

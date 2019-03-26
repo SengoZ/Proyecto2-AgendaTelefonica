@@ -59,6 +59,12 @@ public class Direccion implements Serializable {
 		return this.direccion;
 	}
 
+	@Override
+	public String toString() {
+		return "Direccion [iddireccion=" + iddireccion + ", codpostal=" + codpostal + ", direccion=" + direccion
+				+ ", localidad=" + localidad + ", persona=" + persona + ", provincia=" + provincia + "]";
+	}
+
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}

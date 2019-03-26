@@ -43,68 +43,71 @@
             </section>
         </section>
 
-        <form:form class="form_contact" method="post" modelAttribute="persona" action="save" var="persona" item =" ${persona}">
-            <h2>Alta/Modificación de contactos</h2>
-            <div class = "formularioCliente" id = "formularioCliente" >
+        <form:form class="form_contact" method="post" action="save" modelAttribute="contacto">
+			<h2>Alta/Modificación de contactos</h2>
+			<div class="formularioCliente" id="formularioCliente">
 
-            <div class="form">
-            <form:label for="form" path="nombre">Nombre</form:label>
-            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.nombre}" path="nombre"/>
-            </div>
+				<div class="form">
+					<form:label for="form" path="pers.nombre">Nombre</form:label>
+					<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${pers.nombre}" path="pers.nombre" />
+				</div>
+
+				<div class="form">
+					<form:label for="form" path="pers.apellido1">Primer Apellido</form:label>
+					<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${pers.apellido1}" path="pers.apellido1" />
+				</div>
+
+				<div class="form">
+					<form:label for="form" path="pers.apellido2">Segundo Apellido</form:label>
+					<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${pers.apellido2}" path="pers.apellido2" />
+				</div>
+
+				<div class="form">
+					<form:label for="form" path="pers.dni">DNI</form:label>
+					<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${pers.dni}" path="pers.dni" />
+				</div>
+
+				<div class="form">
+					<form:label for="form" path="pers.fechanacimiento">Fecha de Nacimiento</form:label>
+					<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${pers.fechanacimiento}" path="pers.fechanacimiento" />
+				</div>
+			</div>
 
 			<div class="form">
-            <form:label for="form" path="apellido1">Primer Apellido</form:label>
-            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.apellido1}" path="apellido1"/>
-            </div>
-            
-            <div class="form">
-            <form:label for="form" path="apellido2">Segundo Apellido</form:label>
-            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.apellido2}" path="apellido2"/>
-            </div>
-          	
-          	<div class="form">
-            <form:label for="form" path="dni">DNI</form:label>
-            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.dni}" path="dni"/>
-            </div>
+				<form:label for="form" path="tel.telefono">Teléfono</form:label>
+				<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${tel.telefono}" path="tel.telefono" />
+			</div>
+
+			<div class="form">
+				<form:label for="form" path="dir.direccion">Dirección</form:label>
+				<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${dir.direccion}" path="dir.direccion" />
+			</div>
+
+			<div class="form">
+				<form:label for="form" path="dir.codpostal">Código postal</form:label>
+				<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${dir.codpostal}" path="dir.codpostal" />
+			</div>
 			
 			<div class="form">
-            <form:label for="form" path="fechanacimiento">Fecha de Nacimiento</form:label>
-            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.fechanacimiento}" path="fechanacimiento"/>
-            
-            </div>
-            
-            <div class="form">
-            <form:label for="form" path="telefonos[0].telefono">Teléfono</form:label>
-            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.telefonos[0].telefono}" path="telefonos[0].telefono"/>
-            </div>
-			
-			<div class="form">
-            <form:label for="form" path="direccions[0].direccion">Dirección</form:label>
-            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.direccions[0].direccion}" path="direccions[0].direccion"/>
-            </div>
-            
-            <div class="form">
-            <form:label for="form" path="direccions[0].codpostal">Código postal</form:label>
-            <form:input type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.direccions[0].codpostal}" path="direccions[0].codpostal"/>
-            </div>
-            
-            <div class="form">
-            <form:label for="form" path="direccions[0].localidad">Provincia</form:label>
-            <form:select type="text" class="form-control" id="formGroupExampleInput" placeholder= "${persona.direccions[0].localidad}" path="direccions[0].localidad" items="${listaProv}">
-            	<c:forEach var="item" items="${listaProv}">
-		            <option value="${provincia.idprovincia}">${provincia.provincia}</option>
-		    	</c:forEach>
-            </form:select>
-            </div>
-         
-            <div style="padding-left: 50%; padding-top: 25%">
-            <a href="save"><button type="submit" class="btn btn-primary btn-lg">Enviar</button></a>
-            </div>
+				<form:label for="form" path="dir.localidad">Localidad</form:label>
+				<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${dir.localidad}" path="dir.localidad" />
+			</div>
 
-            
-        
-        </div>
-        </form:form>
+			<div class="form">
+				<form:label for="form" path="dir.provincia.provincia">Provincia</form:label>
+				<!--<form:select type="text" class="form-control" id="formGroupExampleInput" name="item" placeholder="${prov.provincia}" path="prov.provincia" items="${listaProv}">
+				</form:select>-->
+				<form:select placeholder="${prov.idprovincia}" path="prov.idprovincia" name="provincia">
+				    <c:forEach items="${listaProv}" var="provincia">
+				            <option value="${provincia.idprovincia}">${provincia.provincia}</option>
+				    </c:forEach>
+				</form:select>
+			</div>
+			<div style="padding-left: 50%; padding-top: 25%">
+				<a href="save"><button type="submit"
+				class="btn btn-primary btn-lg">Enviar</button></a>
+			</div>
+		</form:form>
 </section>
    
 

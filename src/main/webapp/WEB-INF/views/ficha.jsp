@@ -78,8 +78,11 @@
             </div>
             
             <div class="form">
-            <form:label for="form" path="telefonos[0].telefono">Teléfono</form:label>
-            <p>${persona.telefonos[0].telefono}</p>
+            <form:label for="form" path="telefonos[0].telefono">Teléfono:</form:label>
+            <br />
+            <c:forEach var="telefonos" items="${persona.telefonos}" varStatus="status">
+				${telefonos.telefono} <br />
+			</c:forEach>
             <p id="invisible">.</p>
 			</div>
 			
