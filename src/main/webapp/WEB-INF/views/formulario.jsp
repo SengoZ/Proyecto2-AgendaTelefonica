@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -35,7 +35,7 @@
         <section class="cantact_info" style="background-image:  url('resources/images/fondo.jpg'); background-size: cover; background-position: center;"> 
             <section class="info_title">
                 <span class="fa fa-user-circle"></span>
-                <h2>ALTA/MODIFICACIÓN<br>DE CONTACTOS</h2>
+                <h2>ALTA/MODIFICACIÃ“N<br>DE CONTACTOS</h2>
             </section>
             <section class="info_items">
                 <p><span class="fa fa-envelope"></span> Grupo 3 LucaTic</p>
@@ -44,9 +44,13 @@
         </section>
 
         <form:form class="form_contact" method="post" action="save" modelAttribute="contacto">
-			<h2>Alta/Modificación de contactos</h2>
+			<h2>Alta/ModificaciÃ³n de contactos</h2>
 			<div class="formularioCliente" id="formularioCliente">
 
+				<div class="form">
+					<form:label for="form" path="pers.idpersona">ID</form:label>
+					<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${pers.idpersona}" path="pers.idpersona" />
+				</div>
 				<div class="form">
 					<form:label for="form" path="pers.nombre">Nombre</form:label>
 					<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${pers.nombre}" path="pers.nombre" />
@@ -74,17 +78,17 @@
 			</div>
 
 			<div class="form">
-				<form:label for="form" path="tel.telefono">Teléfono</form:label>
+				<form:label for="form" path="tel.telefono">TelÃ©fono</form:label>
 				<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${tel.telefono}" path="tel.telefono" />
 			</div>
 
 			<div class="form">
-				<form:label for="form" path="dir.direccion">Dirección</form:label>
+				<form:label for="form" path="dir.direccion">DirecciÃ³n</form:label>
 				<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${dir.direccion}" path="dir.direccion" />
 			</div>
 
 			<div class="form">
-				<form:label for="form" path="dir.codpostal">Código postal</form:label>
+				<form:label for="form" path="dir.codpostal">CÃ³digo postal</form:label>
 				<form:input type="text" class="form-control" id="formGroupExampleInput" placeholder="${dir.codpostal}" path="dir.codpostal" />
 			</div>
 			
@@ -97,13 +101,16 @@
 				<form:label for="form" path="dir.provincia.provincia">Provincia</form:label>
 				<!--<form:select type="text" class="form-control" id="formGroupExampleInput" name="item" placeholder="${prov.provincia}" path="prov.provincia" items="${listaProv}">
 				</form:select>-->
-				<form:select placeholder="${prov.idprovincia}" path="prov.idprovincia" name="provincia">
+				<form:select class="form-control" placeholder="${prov.idprovincia}" path="prov.idprovincia" name="provincia">
+					<option value="${prove.idprovincia}" selected>${prove.provincia}</option>
 				    <c:forEach items="${listaProv}" var="provincia">
+				    	<c:if test="${provincia.idprovincia != prove.idprovincia}">
 				            <option value="${provincia.idprovincia}">${provincia.provincia}</option>
+				        </c:if>
 				    </c:forEach>
 				</form:select>
 			</div>
-			<div style="padding-left: 50%; padding-top: 25%">
+			<div style="padding-left: 50%; padding-top: 10%">
 				<a href="save"><button type="submit"
 				class="btn btn-primary btn-lg">Enviar</button></a>
 			</div>

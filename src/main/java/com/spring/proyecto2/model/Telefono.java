@@ -3,26 +3,30 @@ package com.spring.proyecto2.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * 
- * @author Grupo 3: Amador Cáceres, Cesar Marcos, Andrés Gomez y Sheila García
+ * @author Grupo 3: Amador Cáceres, Cesar Marcos, Andrés Gomez y Sheila García.
+ * 
+ *         Realacionado con la tabla Telefonos. 
+ *         The persistent class for the direccion database table.
  *
  */
 @Entity
-@NamedQuery(name="Telefono.findAll", query="SELECT t FROM Telefono t")
+@NamedQuery(name = "Telefono.findAll", query = "SELECT t FROM Telefono t")
 public class Telefono implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idtelefono;
 
 	private String telefono;
 
-	//bi-directional many-to-one association to Persona
+	/**
+	 * bi-directional many-to-one association to Persona
+	 */
 	@ManyToOne
-	@JoinColumn(name="idpersona")
+	@JoinColumn(name = "idpersona")
 	private Persona persona;
 
 	public Telefono() {
@@ -51,6 +55,5 @@ public class Telefono implements Serializable {
 	public void setPersona(Persona persona) {
 		this.persona = persona;
 	}
-
 
 }

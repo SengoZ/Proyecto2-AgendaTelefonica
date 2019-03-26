@@ -36,7 +36,7 @@ public class AgendaServiceImpl implements AgendaService {
 	 * 
 	 * Implementación del método en el cual nos devolverá un listado de personas.
 	 * 
-	 * @return List<Persona> listado de personas incluidas en la agenda
+	 * @return List(personas) listado de personas incluidas en la agenda
 	 */
 	@Override
 	public List<Persona> list() {
@@ -44,15 +44,25 @@ public class AgendaServiceImpl implements AgendaService {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Método en el que podemos introducir un nuevo contacto.
 	 * 
-	 * Método en el cual podemos introducir un contacto.
-	 * 
-	 * @param persona Introducimos al método el contacto que queremos agregar.
+	 * @param pers parámetro con los datos de la persona
+	 * @param dir  parámetro con los datos de la dirección de la persona.
+	 * @param tel  parámetro con los datos del telefono de la persona.
+	 * @param prov parámetro copntiene la provincia donde está la persona.
 	 */
 	@Override
-	public void add(Persona persona) {
-		repository.save(persona);
+	public void add(Persona pers, Direccion dir, Telefono tel, Provincia prov) {
+		dir.setPersona(pers);
+		dir.setProvincia(prov);
+		tel.setPersona(pers);
+		List<Direccion> direcciones = new ArrayList<Direccion>();
+		direcciones.add(dir);
+		pers.setDireccions(direcciones);
+		List<Telefono> telefonos = new ArrayList<Telefono>();
+		telefonos.add(tel);
+		pers.setTelefonos(telefonos);
+		repository.save(pers);
 	}
 
 	/**
@@ -72,8 +82,6 @@ public class AgendaServiceImpl implements AgendaService {
 	}
 
 	/**
-	 * {@inheritDoc}
-	 * 
 	 * Método en el cual podemos eliminar un contacto de la agenda a partir de un id
 	 * como parámetro.
 	 * 
@@ -89,37 +97,28 @@ public class AgendaServiceImpl implements AgendaService {
 	}
 
 	/**
-	 * Metodo por el cual editamos un contacto de la agenda, a paritr de un id
+	 * Metodo en el que editamos un contacto de la agenda, a paritr de un id
 	 * 
-	 * @param id: Id identificador del contacto a editar
+	 * @param pers parámetro con los datos de la persona
+	 * @param dir  parámetro con los datos de la dirección de la persona.
+	 * @param tel  parámetro con los datos del telefono de la persona.
+	 * @param prov parámetro copntiene la provincia donde está la persona.
 	 */
 	@Override
 	public void edit(Persona pers, Direccion dir, Telefono tel, Provincia prov) {
+		dir.setPersona(pers);
+		dir.setIddireccion(buscarId(pers.getIdpersona()).getDireccions().get(0).getIddireccion());
+		dir.setProvincia(prov);
+		tel.setPersona(pers);
+		tel.setIdtelefono(buscarId(pers.getIdpersona()).getTelefonos().get(0).getIdtelefono());
+		List<Direccion> direcciones = new ArrayList<Direccion>();
+		direcciones.add(dir);
+		pers.setDireccions(direcciones);
+		List<Telefono> telefonos = new ArrayList<Telefono>();
+		telefonos.add(tel);
+		pers.setTelefonos(telefonos);
 		repository.save(pers);
-		for (Persona p : repository.findAll()) {
-			if (pers.getDni().equalsIgnoreCase(p.getDni())) {
-				dir.setPersona(p);
-				dir.setProvincia(prov);
-				tel.setPersona(p);
-				System.out.println(dir.toString());
-				List<Direccion> direcciones = new ArrayList<Direccion>();
-				direcciones.add(dir);
-				p.setDireccions(direcciones);
-				List<Telefono> telefonos = new ArrayList<Telefono>();
-				telefonos.add(tel);
-				p.setTelefonos(telefonos);
-				repository.save(p);
-			}
-		}
-		/*
-		 * dir.setPersona(p);
-				tel.setPersona(p);
-				
 
-				
-				repository.save(p);
-		 */
-		
 	}
 
 	/**
@@ -127,11 +126,11 @@ public class AgendaServiceImpl implements AgendaService {
 	 * 
 	 * Implementación del método en el cual nos devolverá un listado de provincias.
 	 * 
-	 * @return List<Provincia> listado de provincias incluidas en la tabla provincia
+	 * @return List(Provincias) listado de provincias incluidas en la tabla
+	 *         provincia
 	 */
 	@Override
 	public List<Provincia> listProv() {
-		// TODO Auto-generated method stub
 		return provincias.findAll();
 	}
 }

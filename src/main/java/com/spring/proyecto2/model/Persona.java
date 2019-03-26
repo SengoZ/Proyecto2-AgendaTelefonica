@@ -1,35 +1,33 @@
 package com.spring.proyecto2.model;
 
-
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
 /**
  * 
  * @author Grupo 3: Amador Cáceres, Cesar Marcos, Andrés Gomez y Sheila García
- *
+ * 
+ *         Tabla Personas.
+ * 
+ *         Se le da una identidad a la clase y se define el nombre de la tabla
+ *         en la que se encuentran los objetos de este tipo.
+ * 
  */
 
-/**
- * Se le da una identidad a la clase y se define el nombre de la tabla en la que
- * se encuentran los objetos de este tipo.
- */
 @Entity
-@NamedQuery(name="Persona.findAll", query="SELECT p FROM Persona p")
+@NamedQuery(name = "Persona.findAll", query = "SELECT p FROM Persona p")
 public class Persona implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
-	 * Se le da una identidad a la ID de la persona que será autoincremental.
-	 * También se hace referencia a las columnas de la tabla que guardará cada
-	 * atributo del objeto.
+	 * Se le da una identidad al identificador de la persona que será
+	 * autoincremental. También se hace referencia a las columnas de la tabla que
+	 * guardará cada atributo del objeto.
 	 */
-	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idpersona;
 
 	private String apellido1;
@@ -42,37 +40,30 @@ public class Persona implements Serializable {
 	private Date fechanacimiento;
 
 	private String nombre;
-	
+
 	/**
-	 * Se utiliza OneToOne para relacionar una persona (mapeado por el ID de la
-	 * persona) con una dirección.
+	 * bi-directional many-to-one association to Direccion
 	 */
-	
-	//bi-directional many-to-one association to Direccion
-	@OneToMany(mappedBy="persona", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
 	private List<Direccion> direccions;
 
 	/**
-	 * Se utiliza OneToMany para relacionar una persona (mapeado por el ID de la
-	 * persona) con varios números de teléfono.
+	 * Se utiliza OneToMany para relacionar una persona (mapeado por el
+	 * identificador de la persona) con varios números de teléfono.
+	 * 
+	 * bi-directional many-to-one association to Telefono
 	 */
-	
-	//bi-directional many-to-one association to Telefono
-	@OneToMany(mappedBy="persona", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
 	private List<Telefono> telefonos;
-	
+
 	/**
 	 * Se realizan tanto el constructor vacío como el constructor con los atributos
 	 * que definen al objeto.
 	 */
-	
+
 	public Persona() {
 	}
-	
-	/**
-	 * Se realizan Getter/Setter de todos los parámetros.
-	 */
-	
+
 	public int getIdpersona() {
 		return this.idpersona;
 	}
@@ -129,7 +120,6 @@ public class Persona implements Serializable {
 		this.direccions = direccions;
 	}
 
-
 	public List<Telefono> getTelefonos() {
 		return this.telefonos;
 	}
@@ -137,13 +127,5 @@ public class Persona implements Serializable {
 	public void setTelefonos(List<Telefono> telefonos) {
 		this.telefonos = telefonos;
 	}
-
-	@Override
-	public String toString() {
-		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
-				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + ", direccions=" + direccions
-				+ ", telefonos=" + telefonos + "]";
-	}
-
 
 }
