@@ -3,6 +3,8 @@ package com.spring.proyecto2.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 
  * @author Grupo 3: Amador Cáceres, Cesar Marcos, Andrés Gomez y Sheila García
@@ -30,6 +32,7 @@ public class Direccion implements Serializable {
 	/**
 	 * bi-directional many-to-one association to Persona
 	 */
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "idpersona")
 	private Persona persona;
@@ -37,6 +40,7 @@ public class Direccion implements Serializable {
 	/**
 	 * bi-directional many-to-one association to Provincia
 	 */
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "idprovincia")
 	private Provincia provincia;
@@ -91,5 +95,13 @@ public class Direccion implements Serializable {
 	public void setProvincia(Provincia provincia) {
 		this.provincia = provincia;
 	}
+
+	@Override
+	public String toString() {
+		return "Direccion [iddireccion=" + iddireccion + ", codpostal=" + codpostal + ", direccion=" + direccion
+				+ ", localidad=" + localidad + ", persona=" + persona + ", provincia=" + provincia + "]";
+	}
+	
+	
 
 }
