@@ -41,11 +41,7 @@ public class Persona implements Serializable {
 
 	private String nombre;
 
-	/**
-	 * bi-directional many-to-one association to Direccion
-	 */
-	@OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
-	private List<Direccion> direccions;
+	
 
 	/**
 	 * Se utiliza OneToMany para relacionar una persona (mapeado por el
@@ -55,6 +51,12 @@ public class Persona implements Serializable {
 	 */
 	@OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
 	private List<Telefono> telefonos;
+	
+	/**
+	 * bi-directional many-to-one association to Direccion
+	 */
+	@OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
+	private List<Direccion> direccions;
 
 	/**
 	 * Se realizan tanto el constructor vacío como el constructor con los atributos
@@ -127,5 +129,14 @@ public class Persona implements Serializable {
 	public void setTelefonos(List<Telefono> telefonos) {
 		this.telefonos = telefonos;
 	}
+
+	@Override
+	public String toString() {
+		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
+				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + ", telefonos=" + telefonos
+				+ ", direccions=" + direccions + "]";
+	}
+	
+	
 
 }

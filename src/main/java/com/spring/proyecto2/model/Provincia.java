@@ -35,6 +35,10 @@ public class Provincia implements Serializable {
 
 	public Provincia() {
 	}
+	
+	public Provincia(int id) {
+		this.idprovincia=id;
+	}
 
 	public Provincia(String provincia) {
 		this.provincia = provincia;
@@ -77,5 +81,13 @@ public class Provincia implements Serializable {
 
 		return direccion;
 	}
+
+	@Override
+	public String toString() {
+		return "Provincia [idprovincia=" + idprovincia + ", provincia=" + provincia + ", direccions=" + direccions
+				+ "]";
+	}
+	
+	
 
 }

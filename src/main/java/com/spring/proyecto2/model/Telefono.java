@@ -3,6 +3,8 @@ package com.spring.proyecto2.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * 
  * @author Grupo 3: Amador Cáceres, Cesar Marcos, Andrés Gomez y Sheila García.
@@ -25,6 +27,7 @@ public class Telefono implements Serializable {
 	/**
 	 * bi-directional many-to-one association to Persona
 	 */
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "idpersona")
 	private Persona persona;
