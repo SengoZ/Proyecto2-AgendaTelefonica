@@ -130,13 +130,4 @@ public class Persona implements Serializable {
 		this.telefonos = telefonos;
 	}
 
-	@Override
-	public String toString() {
-		return "Persona [idpersona=" + idpersona + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni="
-				+ dni + ", fechanacimiento=" + fechanacimiento + ", nombre=" + nombre + ", telefonos=" + telefonos
-				+ ", direccions=" + direccions + "]";
-	}
-	
-	
-
 }
